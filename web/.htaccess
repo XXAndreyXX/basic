@@ -1,0 +1,10 @@
+#включаем mod_rewrite
+RewriteEngine on
+# If a directory or a file exists, use it directly
+#все существующие файлы не будут обрабатыватьс€ регул€рным выражением
+RewriteCond %{REQUEST_FILENAME} !-f
+#все существующие папки не будут обрабатыватьс€ регул€рным выражением
+RewriteCond %{REQUEST_FILENAME} !-d
+# Otherwise forward it to index.php
+#RewriteRule . index.php
+RewriteRule ^(.*)$ index.php [L,QSA]
